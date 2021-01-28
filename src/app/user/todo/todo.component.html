@@ -1,0 +1,23 @@
+<div class="section">
+    <form [formGroup]='todoform' (ngSubmit)="submit()">
+        <input type="text" formControlName="taskName" placeholder="Enter task name" name="name">
+        <div *ngIf=" !todoform.get('taskName').valid && todoform.get('taskName').touched">Enter Name</div>
+
+
+        <select name="taskType" formControlName="taskType">
+            <option [selected]='true' hidden disabled >Select a task type</option>
+            <option value="Home">Home</option>
+            <option value="Work">Work</option>
+        </select>
+        <div *ngIf=" !todoform.get('taskType').valid && todoform.get('taskType').touched">Select task type</div>
+
+        <input type="date" name="endDate" formControlName="endDate">
+        <div *ngIf=" !todoform.get('endDate').valid && todoform.get('endDate').touched && todoform.get('endDate').value == ''  ">Select end date</div>
+        <div *ngIf=" !todoform.get('endDate').valid && todoform.get('endDate').touched && todoform.get('endDate').value != '' ">Select end date greater than today</div>
+
+
+        <input type="button" value="submit" (click)="submit()" [disabled]='!todoform.valid'>
+        <a href="#" routerLink="/dashboard">Back to dashboard</a>
+
+    </form>
+</div>

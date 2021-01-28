@@ -1,0 +1,16 @@
+<div class="section">
+    <form class="loginform" [formGroup]='loginform' (ngSubmit)="submit()">
+
+        <input type="text" formControlName="userName" placeholder="Enter email" name="name">
+        <div *ngIf=" !loginform.get('userName').valid && loginform.get('userName').touched && loginform.get('userName').value == ''">Enter email</div>
+        <div *ngIf=" loginform.get('userName').value != '' && loginform.get('userName').touched && loginform.get('userName').invalid">Incorrect email format</div>
+
+        <input type="password" formControlName="password" placeholder="Enter password" name="password" id="">
+        <div *ngIf=" !loginform.get('password').valid && loginform.get('password').touched">Enter password</div>
+
+        <div *ngIf="!found && found != null ">Invalid email / password</div>
+
+        <input type="button" type="submit" [disabled]='loginform.invalid'>
+        <a routerLink='/registration'>Dont have a account</a>
+    </form>
+</div>

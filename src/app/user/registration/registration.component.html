@@ -1,0 +1,41 @@
+<div class="section">
+    <div class="form-group">
+        <h1>Enter Details to Register</h1>
+        <form class="signUpform" [formGroup]='signUpform' (ngSubmit)="submit()">
+
+            <input type="text" formControlName="userName" placeholder="Enter Name" name="name">
+            <div *ngIf=" !signUpform.get('userName').valid && signUpform.get('userName').touched">Enter Name</div>
+
+            <input type="email" formControlName="UserEmail" placeholder="Enter email" name="email">
+            <div *ngIf=" !signUpform.get('UserEmail').valid && signUpform.get('UserEmail').touched && signUpform.get('UserEmail').value != '' ">Enter correct Email</div>
+            <div *ngIf="signUpform.get('UserEmail').value =='' && signUpform.get('UserEmail').touched">Enter Email</div>
+
+            <input type="password" formControlName="password" placeholder="Enter password" name="password" id="">
+            <div *ngIf="signUpform.get('password').value =='' && signUpform.get('password').touched">Enter Password</div>
+            <div *ngIf=" !signUpform.get('password').valid && signUpform.get('password').touched && signUpform.get('password').value != '' ">Password should be of Minimum 4 characters</div>
+
+            <input type="password" formControlName="repeatPassword" placeholder="Enter repeat password" name="repeatPassword" id="">
+            <div *ngIf="signUpform.get('repeatPassword').value =='' && signUpform.get('repeatPassword').touched">Enter Password</div>
+            <div *ngIf="signUpform.get('repeatPassword').value != signUpform.get('password').value     && signUpform.get('repeatPassword').touched">Password and repeat password dont match</div>
+            <div *ngIf=" !signUpform.get('repeatPassword').valid && signUpform.get('repeatPassword').touched && signUpform.get('repeatPassword').value != '' ">Password should be of Minimum 4 characters</div>
+
+            <select name="gender" id="" formControlName="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <textarea name="address" formControlName="address" placeholder="Enter address" id="" cols="30" rows="10"></textarea>
+            <div *ngIf="signUpform.get('address').value =='' && signUpform.get('address').touched">Enter address</div>
+
+            <input type="file" name="" formControlName="profile" (change)='getImage($event)' id="">
+            <div *ngIf="signUpform.get('profile').value =='' && signUpform.get('profile').touched">Select Profile picture</div>
+            <div *ngIf="duplicate">Email Exists</div>
+            <div *ngIf="!duplicate && duplicate != null">User Registered Successfully</div>
+
+            <input type="button" type="submit" [disabled]='signUpform.invalid'>
+
+            <a href="#" routerLink="/login">Already have account?</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.section {
+    height: 74%;
+    padding: 50px;
+    text-align: center;
+}
+
+.loginform {
+    width: 212px;
+    margin: auto;
+    margin-top: 90px;
+}
+
+input {
+    margin: 10px;
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+}

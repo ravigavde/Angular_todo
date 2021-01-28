@@ -1,0 +1,26 @@
+<div class="navbar">
+    <ul>
+        <li> <a href="#" routerLink="/profile">Profile</a> </li>
+        <li> <a href="#" routerLink="/todo">Add todo</a> </li>
+        <li> <a href="#" (click)="logout()">Logout</a> </li>
+    </ul>
+</div>
+<div class="section">
+    <div class="table">
+        <table>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>End Date</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="for items of userTodo ">
+                <td>{{ items.TaskName }} </td>
+                <td>{{ items.taskType }} </td>
+                <td>{{ items.endDate }} </td>
+                <td>{{ items.status }} </td>
+            </tr>
+        </table>
+    </div>
+</div>
