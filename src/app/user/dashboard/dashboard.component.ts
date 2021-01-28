@@ -1,6 +1,8 @@
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../service/todo.service';
 import { UserService } from '../service/user.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +12,7 @@ import { UserService } from '../service/user.service';
 export class DashboardComponent implements OnInit {
 
   userTodo : any;
+  nameToDelete : Array<any> = [];
 
   constructor(private userService: UserService, private todoService : TodoService) { }
   logout()
@@ -18,13 +21,38 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.userTodo = this.userTodo = this.todoService.getTodo();
-   console.log( this.userTodo  );
-   
+   this.userTodo = this.userTodo = this.todoService.getTodo(); 
   }
-  find(event:any){
-    // console.log(event);
+  find(event:any)
+  {
+    this.nameToDelete.push( parseInt( event) );
+    // console.log(this.nameToDelete);
     
+  }
+  delete()
+  {
+    // nametodelete  indexes
+    if(confirm("Are you sure to delete"))
+    {
+      let originalTodo = this.todoService.getTodo();
+      let newTodo = [];
+      let flag = 0;
+
+      for(let i = 0 ; i < originalTodo.length ; i++)
+      {
+        if( this.nameToDelete[flag] == i )
+        {
+          flag++;
+          continue;
+        }
+        else
+        {
+          newTodo.push(originalTodo[i]);
+        }
+      }
+      this.todoService.deleteTodo(newTodo);
+      this.nameToDelete = [];
+    }
   }
 
 }

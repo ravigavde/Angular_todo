@@ -1,16 +1,15 @@
 <div class="navbar">
     <ul>
-        <li> <a routerLink="/profile">Profile</a> </li>
-        <li> <a routerLink="/todo">Add todo</a> </li>
-        <li> <a (click)="logout()">Logout</a> </li>
+        <li> <a href="#" routerLink="/profile">Profile</a> </li>
+        <li> <a href="#" routerLink="/todo">Add todo</a> </li>
+        <li> <a href="#" (click)="logout()">Logout</a> </li>
     </ul>
 </div>
 <div class="section">
     <div class="table">
-        {{userTodo[0].status}}
         <table border="1">
             <tr>
-                <th> <button type="button">Delete</button> </th>
+                <th> <button type="button" (click)="delete()">Delete</button> </th>
                 <th>Name</th>
                 <th>Type</th>
                 <th>End Date</th>
@@ -18,9 +17,9 @@
                 <th></th>
                 <th></th>
             </tr>
-            <tr *ngFor="let items of userTodo ">
+            <tr *ngFor="let items of userTodo; let index = index ">
                 <td>
-                    <input type="checkbox" id='{{ items.taskName }}' (click)="find($event.target.id)"> </td>
+                    <input type="checkbox" id='{{ index }}' (click)="find($event.target.id)"> </td>
                 <td>{{ items.taskName }} </td>
                 <td>{{ items.taskType }} </td>
                 <td>{{ items.endDate }} </td>
