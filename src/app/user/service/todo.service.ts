@@ -90,7 +90,6 @@ export class TodoService {
         orignalTodo[index].taskName =   todo.taskName;
         orignalTodo[index].taskType =  todo.taskType;
         orignalTodo[index].endDate  =  todo.endDate;
-
       }
     });
 
@@ -98,7 +97,6 @@ export class TodoService {
       if(element.email == email )
       {
         element.todo= orignalTodo ;
-       
       }
     })
     window.localStorage.setItem('user',JSON.stringify(data));
