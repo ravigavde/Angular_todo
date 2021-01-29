@@ -68,6 +68,41 @@ export class UserService {
   { 
     return( window.localStorage.getItem("loggedIn"))
   }
+  updateProfile(updatedData)
+  {
+    let data = JSON.parse( window.localStorage.getItem('user'));
+    let email = this.loggedIn();
+    console.log(updatedData.profile == undefined);
+    
+  
+    if( updatedData.profile == undefined)
+    {
+      data.forEach((element,index) => {
+        if(element.email == email )
+        {
+          element.name = updatedData.name ;
+          element.address = updatedData.address ;
+          element.gender = updatedData.gender ;
+        }
+      });
+    }
+    if(updatedData.profile != "" || updatedData.profile != undefined )
+    {
+      data.forEach((element,index) => {
+        if(element.email == email )
+        {
+          element.name = updatedData.name ;
+          element.address = updatedData.address ;
+          element.gender = updatedData.gender ;
+          element.profile = updatedData.profile ;
+        }
+      });
+
+    }
+
+    
+    window.localStorage.setItem('user',JSON.stringify(data));
+  }
   logout()
   {
     this.router.navigate(['/login']);
