@@ -1,5 +1,5 @@
 .section {
-    width: 96%;
+    width: 89%;
     height: 80%;
     padding: 80px;
 }
@@ -20,4 +20,8 @@ select {
 select {
     width: 160px;
     height: 40px;
+}
+
+a {
+    margin-left: 30px;
 }
