@@ -11,6 +11,7 @@ export class TodoComponent implements OnInit {
   
   todoform : FormGroup;
   today : number = (new Date).getDate();
+  success : boolean = false;
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ export class TodoComponent implements OnInit {
       'status'   : "Pending"
     }    
     this.todoService.addTodo(todo);
-
+    this.success = true;
   }
 
 }

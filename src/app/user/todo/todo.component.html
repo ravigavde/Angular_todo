@@ -17,6 +17,7 @@
 
 
         <input type="button" value="submit" (click)="submit()" [disabled]='!todoform.valid'>
+        <div *ngIf="success">TODO added successfully</div>
         <a href="#" routerLink="/dashboard">Back to dashboard</a>
 
     </form>
