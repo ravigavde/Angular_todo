@@ -21,7 +21,7 @@ ul {
 
 table {
     display: block;
-    width: 400px;
+    width: 670px;
 }
 
 td,
@@ -29,4 +29,5 @@ th {
     width: 200px;
     padding: 5px;
     border: none;
+    text-align: center;
 }

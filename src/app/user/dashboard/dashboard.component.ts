@@ -29,6 +29,10 @@ export class DashboardComponent implements OnInit {
     // console.log(this.nameToDelete);
     
   }
+  done()
+  {
+    
+  }
   delete()
   {
     // nametodelete  indexes
