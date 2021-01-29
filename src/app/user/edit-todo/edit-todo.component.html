@@ -13,11 +13,11 @@
 
         <input type="date" name="endDate" formControlName="endDate">
         <div *ngIf=" !todoform.get('endDate').valid && todoform.get('endDate').touched && todoform.get('endDate').value == ''  ">Select end date</div>
-        <div *ngIf=" !todoform.get('endDate').valid && todoform.get('endDate').touched && todoform.get('endDate').value != '' ">Select end date greater than today</div>
+        <div *ngIf=" !todoform.get('endDate').valid && todoform.get('endDate').touched && todoform.get('endDate').value != '' ">Select end date </div>
 
 
         <input type="button" value="submit" (click)="submit()" [disabled]='!todoform.valid'>
-        <div *ngIf="">TODO added successfully</div>
+        <div *ngIf="sub">TODO edited successfully</div>
         <a href="#" routerLink="/dashboard">Back to dashboard</a>
 
     </form>
