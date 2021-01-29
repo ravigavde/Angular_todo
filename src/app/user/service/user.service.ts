@@ -1,12 +1,13 @@
 import { ReturnStatement } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   userdata : any;
-  constructor() { }
+  constructor(private router : Router) { }
   registerUser(userData)
   {
     let data ;
@@ -68,7 +69,8 @@ export class UserService {
   }
   logout()
   {
-    window.localStorage.removeItem("loggedIn")
+    this.router.navigate(['/login']);
+    window.localStorage.removeItem("loggedIn");
   }
   getUserData(){
     return(this.userdata);
