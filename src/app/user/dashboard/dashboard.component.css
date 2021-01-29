@@ -13,3 +13,20 @@ li {
 ul {
     width: 80%;
 }
+
+.table {
+    width: 368px;
+    margin: auto;
+}
+
+table {
+    display: block;
+    width: 400px;
+}
+
+td,
+th {
+    width: 200px;
+    padding: 5px;
+    border: none;
+}
