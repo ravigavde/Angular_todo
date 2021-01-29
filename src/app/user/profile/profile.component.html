@@ -5,7 +5,7 @@
 
             <label for="name">Name</label>
             <input type="text" formControlName="userName" id="name">
-            <div *ngIf="profileForm.get('userName')"> </div>
+            <div *ngIf="profileForm.get('userName').value == '' "> Enter name </div>
 
             <label for="gender">Gender</label>
             <select formControlName="gender" id="gender">
@@ -16,11 +16,13 @@
 
             <label for="address">Address</label>
             <textarea formControlName="address" id="address" cols="30" rows="10"></textarea>
+            <div *ngIf="profileForm.get('address').value == '' "> Enter address </div>
 
             <label for="profile">Change profile picture</label>
             <input type="file" (change)='getImage($event)' formControlName="picture" id="profile">
 
             <input type="button" type="submit" [disabled]='profileForm.invalid'>
+            <div *ngIf="sub">Successfully changed details</div>
         </form>
         <a routerLink='/dashboard'>Back</a>
     </div>
