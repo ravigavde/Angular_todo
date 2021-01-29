@@ -14,3 +14,7 @@ a {
     display: block;
     text-decoration: none;
 }
+
+textarea {
+    padding: 10px;
+}
