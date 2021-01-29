@@ -29,9 +29,10 @@ export class DashboardComponent implements OnInit {
     // console.log(this.nameToDelete);
     
   }
-  done()
+  done(id)
   {
-    
+    let todo = this.todoService.getTodo();
+    this.todoService.doneTodo(id[0],todo);
   }
   delete()
   {

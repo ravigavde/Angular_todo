@@ -19,13 +19,14 @@
             </tr>
             <tr *ngFor="let items of userTodo; let index = index ">
                 <td>
-                    <input type="checkbox" id='{{ index }}' (click)="find($event.target.id)"> </td>
+                    <input type="checkbox" id='{{ index }}' (click)="find($event.target.id)">
+                </td>
                 <td>{{ items.taskName }} </td>
                 <td>{{ items.taskType }} </td>
                 <td>{{ items.endDate }} </td>
                 <td>{{ items.status }} </td>
-                <td> <button type="button">Edit</button> </td>
-                <td> <button type="button" id='{{ index }} + "1"  ' (click)="done()">Done</button> </td>
+                <td> <button type="button" [disabled]="(items.status == 'Done' )">Edit</button> </td>
+                <td> <button type="button" id='{{ index+ "1" }}' [disabled]="(items.status == 'Done' )" (click)="done($event.target.id)">Done</button> </td>
             </tr>
         </table>
     </div>
