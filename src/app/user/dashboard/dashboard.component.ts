@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
 
   userTodo : any;
   nameToDelete : Array<any> = [];
+  searchText: string = 'name';
 
   constructor(private userService: UserService,private router: Router , private todoService : TodoService, private passId : PassIdService) { }
   logout()

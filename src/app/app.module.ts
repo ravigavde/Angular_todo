@@ -9,12 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './body/header/header.component';
 import { FooterComponent } from './body/footer/footer.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
+    
     
   ],
   imports: [
@@ -22,7 +22,7 @@ import { FooterComponent } from './body/footer/footer.component';
     AppRoutingModule,
     UserModule,
     SharedModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

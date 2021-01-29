@@ -12,6 +12,11 @@ import { TodoComponent } from './user/todo/todo.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
+  {
     path:'registration',
     component:RegistrationComponent
   },
