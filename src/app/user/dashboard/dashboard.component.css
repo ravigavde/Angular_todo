@@ -2,6 +2,7 @@
     width: 80%;
     height: 70%;
     padding: 80px;
+    text-align: center;
 }
 
 li {
@@ -15,7 +16,7 @@ ul {
 }
 
 .table {
-    width: 368px;
+    width: 677px;
     margin: auto;
 }
 

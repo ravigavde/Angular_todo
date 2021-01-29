@@ -1,5 +1,7 @@
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { PassIdService } from '../pass-id.service';
 import { TodoService } from '../service/todo.service';
 import { UserService } from '../service/user.service';
 
@@ -10,11 +12,13 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  
+  @Output() 
 
   userTodo : any;
   nameToDelete : Array<any> = [];
 
-  constructor(private userService: UserService, private todoService : TodoService) { }
+  constructor(private userService: UserService,private router: Router , private todoService : TodoService, private passId : PassIdService) { }
   logout()
   {
     this.userService.logout();
@@ -33,6 +37,11 @@ export class DashboardComponent implements OnInit {
   {
     let todo = this.todoService.getTodo();
     this.todoService.doneTodo(id[0],todo);
+  }
+  edit(id)
+  {
+    this.passId.setId(parseInt(id[0]));
+    this.router.navigate(['/editTodo']);
   }
   delete()
   {

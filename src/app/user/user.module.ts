@@ -7,11 +7,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileComponent } from './profile/profile.component';
 import { TodoComponent } from './todo/todo.component';
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
 
 
 
 @NgModule({
-  declarations: [RegistrationComponent, LoginComponent, DashboardComponent, ProfileComponent, TodoComponent],
+  declarations: [RegistrationComponent, LoginComponent, DashboardComponent, ProfileComponent, TodoComponent, EditTodoComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -21,7 +22,8 @@ import { TodoComponent } from './todo/todo.component';
   exports: [ 
     RegistrationComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditTodoComponent
   ]
 })
 export class UserModule { }

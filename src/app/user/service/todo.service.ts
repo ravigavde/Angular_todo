@@ -72,8 +72,35 @@ export class TodoService {
     window.localStorage.setItem('user',JSON.stringify(data));
     window.location.reload();
   }
-  editTodo()
+  editTodo(id:number , todo:any)
   {
+    let email =  this.userService.loggedIn();
+    let data = JSON.parse(window.localStorage.getItem('user'));
+    let orignalTodo = [];
+    data.forEach((element,index) => {
+      if(element.email == email )
+      {
+       orignalTodo = element.todo;
+       
+      }
+    })
+    orignalTodo.forEach((element,index) => {
+      if( id == index )
+      {
+        orignalTodo[index].taskName =   todo.taskName;
+        orignalTodo[index].taskType =  todo.taskType;
+        orignalTodo[index].endDate  =  todo.endDate;
 
+      }
+    });
+
+    data.forEach((element,index) => {
+      if(element.email == email )
+      {
+        element.todo= orignalTodo ;
+       
+      }
+    })
+    window.localStorage.setItem('user',JSON.stringify(data));
   }
 }

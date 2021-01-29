@@ -1,0 +1,27 @@
+.section {
+    width: 89%;
+    height: 80%;
+    padding: 80px;
+}
+
+form {
+    width: 230px;
+    margin: auto;
+}
+
+input,
+select {
+    height: 30px;
+    width: 150px;
+    margin: 10px;
+    padding: 5px;
+}
+
+select {
+    width: 160px;
+    height: 40px;
+}
+
+a {
+    margin-left: 30px;
+}
