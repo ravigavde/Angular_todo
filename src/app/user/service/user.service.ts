@@ -59,6 +59,7 @@ export class UserService {
         found = true;   
         window.localStorage.setItem("loggedIn",details.email);
         this.userdata = element;
+        console.log(this.userdata);
       }
     });
       return found;
@@ -73,6 +74,15 @@ export class UserService {
     window.localStorage.removeItem("loggedIn");
   }
   getUserData(){
+    let data = JSON.parse( window.localStorage.getItem('user'));
+    let email = this.loggedIn();
+    
+    data.forEach(element => {
+      if(element.email == email)
+      {  
+        this.userdata = element;
+      }
+    });    
     return(this.userdata);
   }
   
