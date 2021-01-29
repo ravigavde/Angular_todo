@@ -42,7 +42,6 @@ export class EditTodoComponent implements OnInit {
     this.todo.taskType = this.todoform.value.taskType;
     this.todo.endDate = this.todoform.value.endDate;
     this.todoService.editTodo(this.id, this.todo);
-
   }
 
 }
