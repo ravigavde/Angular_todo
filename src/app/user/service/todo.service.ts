@@ -51,6 +51,27 @@ export class TodoService {
     window.localStorage.setItem('user',JSON.stringify(data));
     window.location.reload();
   }
+  doneTodo(id,todo)
+  {    
+    let email =  this.userService.loggedIn();
+    let data = JSON.parse(window.localStorage.getItem('user'));
+
+    todo.forEach((element,index) => {
+      if(index == id)
+      {
+        element.status = "Done";
+      }
+    });
+
+    data.forEach((element,index) => {
+      if(element.email == email )
+      {
+        element.todo = todo;
+      }
+    })
+    window.localStorage.setItem('user',JSON.stringify(data));
+    window.location.reload();
+  }
   editTodo()
   {
 
