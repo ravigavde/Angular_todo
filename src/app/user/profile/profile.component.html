@@ -1,1 +1,25 @@
-<p>profile works!</p>
+<div class="section">
+    <div class="details">
+        <form class="profileForm" [formGroup]='profileForm' (ngSubmit)="submit()">
+            <img alt="" class="pic" [src]=" userProfilePic ">
+            <label for="name">Name</label>
+            <input type="text" formControlName="userName" id="name">
+
+            <label for="gender">Gender</label>
+            <select formControlName="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="address">Address</label>
+            <textarea formControlName="address" id="address" cols="30" rows="10"></textarea>
+
+            <label for="profile">Change profile picture</label>
+            <input type="file" formControlName="picture" id="profile">
+
+            <input type="button" type="submit" [disabled]='profileForm.invalid'>
+        </form>
+        <a routerLink='/dashboard'>Back</a>
+    </div>
+</div>

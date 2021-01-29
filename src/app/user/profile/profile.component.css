@@ -1,0 +1,47 @@
+.section {
+    height: 130%;
+    padding: 10px;
+    text-align: center;
+}
+
+label {
+    width: 138px;
+    text-align: left;
+    margin-top: 40px;
+    margin-right: 150px;
+    display: block;
+}
+
+select {
+    margin: 30px;
+    margin-left: 0px;
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    float: left;
+}
+
+.details {
+    width: 212px;
+    margin: auto;
+    margin-top: 90px;
+}
+
+input {
+    margin: 10px;
+    margin-left: 0px;
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+}
+
+textarea {
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.pic {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
