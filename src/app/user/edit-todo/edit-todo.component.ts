@@ -14,6 +14,7 @@ export class EditTodoComponent implements OnInit {
   todoform : FormGroup;
   todo : any;
   id : number;
+  sub:boolean = false;
 
   constructor(private todoService : TodoService, private passIdservice : PassIdService) { }
 
@@ -41,6 +42,7 @@ export class EditTodoComponent implements OnInit {
     this.todo.taskName = this.todoform.value.taskName;
     this.todo.taskType = this.todoform.value.taskType;
     this.todo.endDate = this.todoform.value.endDate;
+    this.sub = true;
     this.todoService.editTodo(this.id, this.todo);
   }
 
