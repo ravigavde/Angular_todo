@@ -21,7 +21,7 @@
             <label for="profile">Change profile picture</label>
             <input type="file" (change)='getImage($event)' formControlName="picture" id="profile">
 
-            <input type="button" type="submit" [disabled]='profileForm.invalid'>
+            <input type="button" type="submit" value="Save" [disabled]='profileForm.invalid'>
             <div *ngIf="sub">Successfully changed details</div>
         </form>
         <a routerLink='/dashboard'>Back</a>

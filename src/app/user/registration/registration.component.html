@@ -35,7 +35,7 @@
             <div style="color: red;" *ngIf="duplicate">Email Exists</div>
             <div style="color: red;" *ngIf="!duplicate && duplicate != null">User Registered Successfully</div>
 
-            <input type="button" type="submit" [disabled]='signUpform.invalid'>
+            <input type="button" type="submit" value="Register" [disabled]='signUpform.invalid'>
 
             <a href="#" routerLink="/login">Already have account?</a>
         </form>

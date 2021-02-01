@@ -13,8 +13,7 @@ import { UserService } from '../service/user.service';
 })
 export class DashboardComponent implements OnInit {
   
-  @Output() 
-
+  filteredTodo : Array<any> = [];
   userTodo : any;
   nameToDelete : Array<any> = [];
   searchText: string = 'name';
@@ -27,12 +26,42 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
    this.userTodo = this.userTodo = this.todoService.getTodo(); 
+   this.change('all');
   }
   find(event:any)
   {
     this.nameToDelete.push( parseInt( event) );
     // console.log(this.nameToDelete);
     
+  }
+  change(value:string)
+  {
+    
+    this.filteredTodo = [];
+    if(value == 'all')
+    {
+      this.userTodo.forEach((element,index) => {
+        this.filteredTodo[index] = this.userTodo[index];
+      });
+    }
+    else if( value == "pending" )
+    {
+      this.userTodo.forEach((element,index) => {
+        if(element.status == "Pending")
+        {
+          this.filteredTodo.push(element);
+        }
+      });
+    }
+    else if( value == "done" )
+    {
+      this.userTodo.forEach((element,index) => {
+        if(element.status == "Done")
+        {
+          this.filteredTodo[index] = this.userTodo[index];
+        }
+      });
+    } 
   }
   done(id)
   {

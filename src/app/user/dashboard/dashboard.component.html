@@ -8,6 +8,9 @@
 <div class="section">
     <div class="table">
         <form>
+            <label for="all">ALL</label> <input checked='true' (click)="change('all')" type="radio" name="filer" id="all">
+            <label for="pending">PENDING</label> <input (click)="change('pending')" type="radio" name="filer" id="pending">
+             <label for="done">DONE</label> <input (click)="change('done')" type="radio" name="filer" id="done">
             <table>
                 <tr>
                     <th> <button type="button" (click)="delete()">Delete</button> </th>
@@ -18,7 +21,7 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <tr *ngFor="let items of userTodo; let index = index ">
+                <tr *ngFor="let items of filteredTodo; let index = index ">
                     <td>
                         <input type="checkbox" id='{{ index }}' (click)="find($event.target.id)">
                     </td>
@@ -30,6 +33,7 @@
                     <td> <button type="button" id='{{ index+ "1" }}' [disabled]="(items.status == 'Done' )" (click)="done($event.target.id)">Done</button> </td>
                 </tr>
             </table>
+            <div *ngIf="filteredTodo.length == 0" >No Data to display</div>
         </form>
     </div>
 </div>
