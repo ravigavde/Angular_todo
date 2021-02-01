@@ -46,3 +46,9 @@ th {
 td {
     background-color: rgb(245, 235, 235);
 }
+label
+{
+    display: inline-block;
+    margin-left: 60px;
+    margin-bottom: 40px ;
+}
